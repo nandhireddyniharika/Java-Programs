@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.event.*;
-
 public class Calculator
 {
     public static void main(String[] args) 
@@ -37,27 +36,34 @@ public class Calculator
         // Action listeners
         final double[] num = new double[1];
         final String[] operator = new String[1];
-        bAdd.addActionListener(e -> {
+        bAdd.addActionListener(new ActionListener(){
+            public void ActionPerformed(ActionEvent e){
             num[0] = Double.parseDouble(textField.getText());
             operator[0] = "+";
             textField.setText("");
+            }
         });
-        bSub.addActionListener(e -> {
+        bSub.addActionListener(new ActionListener(){
+            public void ActionPerformed(ActionEvent e){
             num[0] = Double.parseDouble(textField.getText());
             operator[0] = "-";
             textField.setText("");
+            }
         });
-        bMul.addActionListener(e -> {
+        bMul.addActionListener(new ActionListener(){
+            public void ActionPerformed(ActionEvent e){
             num[0] = Double.parseDouble(textField.getText());
             operator[0] = "*";
             textField.setText("");
-        });
-        bDiv.addActionListener(e -> {
+            }  });
+        bDiv.addActionListener(new ActionListener(){
+            public void ActionPerformed(ActionEvent e){
             num[0] = Double.parseDouble(textField.getText());
             operator[0] = "/";
             textField.setText("");
-        });
-        bEq.addActionListener(e -> {
+            }});
+        bEq.addActionListener(new ActionListener(){
+            public void ActionPerformed(ActionEvent e){
             double result = 0;
             double secondNum = Double.parseDouble(textField.getText());
             switch (operator[0])
@@ -74,9 +80,10 @@ public class Calculator
             }
             if (!operator[0].equals("/") || secondNum != 0)
                 textField.setText(String.valueOf(result));
-        });
+        }});
         bClr.addActionListener(e -> textField.setText(""));
         // Show frame
         frame.setVisible(true);
     }
+
 }
